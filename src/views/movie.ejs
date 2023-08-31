@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie - What2Watch</title>
+  <!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" /> -->
+</head>
+<body>
+  <div id="player">
+    <video id="movie-video" controls crossorigin playsinline>
+      <source src="<%= streamUrl %>" type="video/mp4" />
+      <% if (caption) { %>
+        <track kind="captions" label="English" src="<%= caption %>" srclang="en" default>
+      <% } %>
+    </video>
+  </div>
+
+  <!-- <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script> -->
+  <!-- <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const player = new Plyr('#player video');
+    });
+  </script> -->
+  <script>
+    var elem = document.getElementById("movie-video");
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+
+    openFullscreen();
+    </script>
+</body>
+</html>
